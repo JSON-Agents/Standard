@@ -1,7 +1,7 @@
 {
   "$id": "https://jsonagents.org/registry/capabilities.json",
   "description": "Canonical registry of well-known capability identifiers for JSON Agents manifests.",
-  "version": "2025-11-09",
+  "version": "2025-11-10",
   "capabilities": [
     {
       "id": "summarization",
@@ -20,19 +20,24 @@
     },
     {
       "id": "qa",
-      "description": "Answer user questions using internal or external knowledge sources."
+      "description": "Answer user questions using internal or external knowledge sources.",
+      "schema": "https://jsonagents.org/schema/capabilities/qa.json"
     },
     {
       "id": "classification",
-      "description": "Classify inputs into one or more labels."
+      "description": "Classify inputs into one or more labels.",
+      "schema": "https://jsonagents.org/schema/capabilities/classification.json"
     },
     {
       "id": "extraction",
-      "description": "Extract structured entities or fields from unstructured content."
+      "description": "Extract structured entities or fields from unstructured content.",
+      "schema": "https://jsonagents.org/schema/capabilities/extraction.json"
     },
     {
       "id": "generation",
-      "description": "Generate new content (text, code, etc.) given instructions."
+      "description": "Generate new content (text, code, etc.) given instructions.",
+      "schema": "https://jsonagents.org/schema/capabilities/generation.json"
     }
   ]
 }
+

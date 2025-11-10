@@ -5,20 +5,7 @@ This project adheres to [Semantic Versioning 2.0.0](https://semver.org/).
 
 ---
 
-## [Unreleased]
-
-### Added
-- Placeholder section for upcoming proposals and drafts.
-
-### Changed
-- No pending changes at this time.
-
-### Fixed
-- None yet.
-
----
-
-## [1.0.0] — 2025-11-09  
+## [1.0.0] — 2025-11-10  
 **Initial Publication**
 
 ### Added
@@ -51,7 +38,22 @@ This project adheres to [Semantic Versioning 2.0.0](https://semver.org/).
 - **Capability and Tool Registries**
   - Capabilities registry with 7 standard capabilities.
   - Tool types registry with 6 recognized types.
-  - Schema definitions for summarization, routing, and retrieval capabilities.
+  - Schema definitions for summarization, routing, retrieval, qa, classification, extraction, and generation capabilities.
+
+- **URI Scheme Definition (Section 16)**  
+  - Formal specification of `ajson://` URI scheme syntax (RFC 3986 compliant).
+  - Resolution mechanism with HTTPS transformation and well-known URI pattern.
+  - Registry service requirements and API guidelines.
+  - Comprehensive security considerations for URI resolution.
+  - IANA registration considerations for URI scheme.
+
+- **Policy Expression Language (Appendix B)**  
+  - Formal grammar definition for policy `where` clauses.
+  - Complete operator specification (comparison, string, collection, logical).
+  - Operator precedence rules and evaluation semantics.
+  - Context variable documentation.
+  - Security and performance implementation guidance.
+  - Examples for common policy patterns.
 
 - **Interoperability Mappings**
   - Framework mapping guide (`docs/mapping-frameworks.md`).
@@ -74,19 +76,6 @@ Backward compatibility will be preserved whenever feasible.
 - **Patch** — editorial, clarification, or non-breaking corrections.  
 - **Minor** — new optional fields or example additions.  
 - **Major** — breaking schema or terminology changes.
-
----
-
-## Future Considerations
-
-| Area | Potential for v1.1+ |
-|------|---------------------|
-| **Additional Capabilities** | Schemas for qa, classification, extraction, generation capabilities |
-| **Extension Schemas** | Formal schemas for x-embeddings and x-research extensions |
-| **Profile Extensions** | Community-defined profiles (e.g., realtime, evaluation, data-plane) |
-| **Validation Tooling** | Reference implementation validators and converters |
-| **URI Scheme** | Formal definition and resolution mechanism for `ajson://` URIs |
-| **Policy Expression Language** | Standardized expression syntax for policy `where` clauses |
 
 ---
 

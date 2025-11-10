@@ -18,6 +18,10 @@
   * [Summarization](schema/capabilities/summarization.json)
   * [Routing](schema/capabilities/routing.json)
   * [Retrieval](schema/capabilities/retrieval.json)
+  * [Question Answering (QA)](schema/capabilities/qa.json)
+  * [Classification](schema/capabilities/classification.json)
+  * [Extraction](schema/capabilities/extraction.json)
+  * [Generation](schema/capabilities/generation.json)
 * Extensions
   * [Audit Extension](schema/extensions/audit.json)
   * [Memory Extension](schema/extensions/memory.json)

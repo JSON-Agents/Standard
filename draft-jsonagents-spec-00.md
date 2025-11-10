@@ -201,10 +201,46 @@ Registered extensions appear in
 * All URIs SHOULD use HTTPS.
 * Extensions that add network or storage access MUST specify sandboxing.
 * Agents operating in regulated environments SHOULD declare audit retention policies.
+* Policy expressions MUST NOT execute arbitrary code.
+* URI resolution MUST validate TLS certificates and reject insecure redirects.
 
 ---
 
-## 12. IANA Considerations
+## 12. URI Scheme
+
+The `ajson://` URI scheme uniquely identifies agent manifests and resources.
+
+**Syntax**: `ajson://authority/path[?query][#fragment]`
+
+**Resolution**: Implementations transform `ajson://` URIs to HTTPS requests using the well-known URI pattern:
+
+```
+ajson://example.com/agents/router
+→ https://example.com/.well-known/agents/router.agents.json
+```
+
+See Section 16 of the full specification for complete details.
+
+---
+
+## 13. Policy Expression Language
+
+Policy `where` clauses use a simple expression language for access control:
+
+**Operators**: `==`, `!=`, `>`, `<`, `>=`, `<=`, `~`, `!~`, `in`, `not in`, `&&`, `||`, `not`
+
+**Example**:
+```json
+{
+  "where": "tool.type == 'http' && tool.endpoint !~ 'external'"
+}
+```
+
+See Appendix B of the full specification for complete grammar and semantics.
+
+---
+
+## 14. IANA Considerations
 
 Media Type:
 
@@ -218,9 +254,15 @@ File extension:
 .agents.json
 ```
 
+URI Scheme:
+
+```
+ajson://
+```
+
 ---
 
-## 13. Acknowledgments
+## 15. Acknowledgments
 
 The JSON Agents design draws on lessons from JSON Schema,
 OpenAPI, and model-context protocols.
@@ -231,6 +273,8 @@ Thanks to the open-source community for collaborative feedback.
 ### References
 
 * RFC 8259 — *The JSON Data Interchange Syntax*
+* RFC 3986 — *Uniform Resource Identifier (URI): Generic Syntax*
+* RFC 2119 — *Key words for use in RFCs to Indicate Requirement Levels*
 * ECMA-404 — *The JSON Data Interchange Format*
 * ISO/IEC 21778:2017 — *Information technology — JSON*
 * JSON Schema 2020-12 — *Core and Validation Specifications*

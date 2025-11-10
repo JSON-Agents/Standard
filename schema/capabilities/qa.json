@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonagents.org/schema/capabilities/qa.json",
+  "title": "Capability: Question Answering (QA)",
+  "description": "Standardized declaration for question-answering capability using internal or external knowledge sources.",
+  "type": "object",
+  "required": ["id"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "const": "qa"
+    },
+    "description": {
+      "type": "string",
+      "default": "Answer user questions using internal or external knowledge sources."
+    },
+    "input_schema": {
+      "type": "object",
+      "description": "Expected input structure for question answering.",
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "type": "string",
+          "description": "The question to be answered."
+        },
+        "context": {
+          "type": ["string", "array"],
+          "description": "Optional context or conversation history for the question.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": ["user", "assistant", "system"]
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "description": "Optional specific sources to query (e.g., document IDs, URLs).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "language": {
+          "type": "string",
+          "description": "BCP 47 language tag of the question.",
+          "default": "en"
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384,
+          "description": "Maximum length of the answer in tokens."
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Sampling temperature for answer generation."
+        }
+      },
+      "required": ["question"]
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "Standardized question-answering output format.",
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "type": "string",
+          "description": "Generated answer to the question."
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Confidence score for the answer."
+        },
+        "sources": {
+          "type": "array",
+          "description": "Sources used to generate the answer.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the source."
+              },
+              "title": {
+                "type": "string",
+                "description": "Title of the source document."
+              },
+              "uri": {
+                "type": "string",
+                "format": "uri",
+                "description": "URI to the source."
+              },
+              "snippet": {
+                "type": "string",
+                "description": "Relevant excerpt from the source."
+              },
+              "relevance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Relevance score of this source."
+              }
+            }
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Additional metadata about the answer generation.",
+          "properties": {
+            "model": {
+              "type": "string",
+              "description": "Model or knowledge base used."
+            },
+            "tokens_used": {
+              "type": "integer",
+              "description": "Number of tokens consumed."
+            },
+            "processing_time_ms": {
+              "type": "integer",
+              "description": "Time taken to generate answer in milliseconds."
+            }
+          }
+        }
+      },
+      "required": ["answer"]
+    }
+  },
+  "examples": [
+    {
+      "id": "qa",
+      "description": "Answer technical questions using documentation."
+    },
+    {
+      "id": "qa",
+      "description": "Customer support question answering agent.",
+      "input_schema": {
+        "question": "How do I reset my password?",
+        "language": "en"
+      },
+      "output_schema": {
+        "answer": "To reset your password, visit the password reset page...",
+        "confidence": 0.95
+      }
+    }
+  ]
+}

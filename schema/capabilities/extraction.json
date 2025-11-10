@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonagents.org/schema/capabilities/extraction.json",
+  "title": "Capability: Extraction",
+  "description": "Standardized declaration for entity and information extraction from unstructured content.",
+  "type": "object",
+  "required": ["id"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "const": "extraction"
+    },
+    "description": {
+      "type": "string",
+      "default": "Extract structured entities or fields from unstructured content."
+    },
+    "input_schema": {
+      "type": "object",
+      "description": "Expected input structure for extraction.",
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The text or content from which to extract information."
+        },
+        "schema": {
+          "type": "object",
+          "description": "Target schema defining what to extract (field names and types).",
+          "additionalProperties": true
+        },
+        "entity_types": {
+          "type": "array",
+          "description": "Types of entities to extract (e.g., 'person', 'organization', 'date').",
+          "items": {
+            "type": "string"
+          }
+        },
+        "language": {
+          "type": "string",
+          "description": "BCP 47 language tag of the input text.",
+          "default": "en"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["text", "html", "markdown", "pdf"],
+          "default": "text",
+          "description": "Format of the input content."
+        }
+      },
+      "required": ["text"]
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "Standardized extraction output format.",
+      "additionalProperties": false,
+      "properties": {
+        "entities": {
+          "type": "array",
+          "description": "Extracted entities with metadata.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Entity type (e.g., 'person', 'organization', 'location')."
+              },
+              "value": {
+                "type": "string",
+                "description": "Extracted entity value."
+              },
+              "start": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Start position in original text."
+              },
+              "end": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "End position in original text."
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Confidence score for this extraction."
+              },
+              "metadata": {
+                "type": "object",
+                "description": "Additional entity metadata.",
+                "additionalProperties": true
+              }
+            },
+            "required": ["type", "value"]
+          }
+        },
+        "structured_data": {
+          "type": "object",
+          "description": "Extracted data matching the input schema.",
+          "additionalProperties": true
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overall confidence in the extraction."
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Additional extraction metadata.",
+          "properties": {
+            "model": {
+              "type": "string",
+              "description": "Model used for extraction."
+            },
+            "entities_count": {
+              "type": "integer",
+              "description": "Total number of entities extracted."
+            },
+            "processing_time_ms": {
+              "type": "integer",
+              "description": "Time taken to extract in milliseconds."
+            }
+          }
+        }
+      },
+      "anyOf": [
+        { "required": ["entities"] },
+        { "required": ["structured_data"] }
+      ]
+    }
+  },
+  "examples": [
+    {
+      "id": "extraction",
+      "description": "Extract named entities from legal documents."
+    },
+    {
+      "id": "extraction",
+      "description": "Extract structured invoice data.",
+      "input_schema": {
+        "text": "Invoice #12345 dated 2025-11-10 for Acme Corp, total: $1,250.00",
+        "schema": {
+          "invoice_number": "string",
+          "date": "string",
+          "company": "string",
+          "total": "number"
+        }
+      },
+      "output_schema": {
+        "structured_data": {
+          "invoice_number": "12345",
+          "date": "2025-11-10",
+          "company": "Acme Corp",
+          "total": 1250.00
+        },
+        "confidence": 0.92
+      }
+    }
+  ]
+}

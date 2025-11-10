@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonagents.org/schema/capabilities/classification.json",
+  "title": "Capability: Classification",
+  "description": "Standardized declaration for text or data classification capability.",
+  "type": "object",
+  "required": ["id"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "const": "classification"
+    },
+    "description": {
+      "type": "string",
+      "default": "Classify inputs into one or more labels."
+    },
+    "input_schema": {
+      "type": "object",
+      "description": "Expected input structure for classification.",
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The text or content to classify."
+        },
+        "labels": {
+          "type": "array",
+          "description": "Set of possible classification labels (closed-set classification).",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2
+        },
+        "multi_label": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether multiple labels can be assigned (multi-label classification)."
+        },
+        "threshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.5,
+          "description": "Minimum confidence threshold for label assignment."
+        },
+        "language": {
+          "type": "string",
+          "description": "BCP 47 language tag of the input text.",
+          "default": "en"
+        }
+      },
+      "required": ["text"]
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "Standardized classification output format.",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Primary assigned label (single-label classification)."
+        },
+        "labels": {
+          "type": "array",
+          "description": "All assigned labels (multi-label classification).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scores": {
+          "type": "object",
+          "description": "Confidence scores for each possible label.",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overall confidence in the classification."
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Additional classification metadata.",
+          "properties": {
+            "model": {
+              "type": "string",
+              "description": "Model used for classification."
+            },
+            "processing_time_ms": {
+              "type": "integer",
+              "description": "Time taken to classify in milliseconds."
+            }
+          }
+        }
+      },
+      "anyOf": [
+        { "required": ["label"] },
+        { "required": ["labels"] }
+      ]
+    }
+  },
+  "examples": [
+    {
+      "id": "classification",
+      "description": "Sentiment classification for customer feedback."
+    },
+    {
+      "id": "classification",
+      "description": "Multi-label topic classification.",
+      "input_schema": {
+        "text": "This article discusses machine learning and artificial intelligence.",
+        "labels": ["technology", "science", "education", "business"],
+        "multi_label": true
+      },
+      "output_schema": {
+        "labels": ["technology", "science"],
+        "scores": {
+          "technology": 0.95,
+          "science": 0.82,
+          "education": 0.41,
+          "business": 0.23
+        },
+        "confidence": 0.88
+      }
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonagents.org/schema/capabilities/generation.json",
+  "title": "Capability: Generation",
+  "description": "Standardized declaration for content generation capability (text, code, etc.).",
+  "type": "object",
+  "required": ["id"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "const": "generation"
+    },
+    "description": {
+      "type": "string",
+      "default": "Generate new content (text, code, etc.) given instructions."
+    },
+    "input_schema": {
+      "type": "object",
+      "description": "Expected input structure for generation.",
+      "additionalProperties": false,
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "The generation prompt or instruction."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["text", "code", "markdown", "html", "json", "yaml", "sql", "other"],
+          "default": "text",
+          "description": "Type of content to generate."
+        },
+        "context": {
+          "type": ["string", "array", "object"],
+          "description": "Optional context or examples for the generation."
+        },
+        "constraints": {
+          "type": "object",
+          "description": "Generation constraints.",
+          "properties": {
+            "max_tokens": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 32768,
+              "description": "Maximum length of generated content in tokens."
+            },
+            "temperature": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 2,
+              "default": 1.0,
+              "description": "Sampling temperature for generation."
+            },
+            "top_p": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Nucleus sampling parameter."
+            },
+            "stop_sequences": {
+              "type": "array",
+              "description": "Sequences that will stop generation.",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "language": {
+          "type": "string",
+          "description": "Target language for generation (BCP 47 tag for text, programming language for code).",
+          "default": "en"
+        },
+        "style": {
+          "type": "string",
+          "description": "Generation style or tone (e.g., 'formal', 'casual', 'technical')."
+        }
+      },
+      "required": ["prompt"]
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "Standardized generation output format.",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Generated content."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of generated content."
+        },
+        "alternatives": {
+          "type": "array",
+          "description": "Alternative generated outputs (if requested).",
+          "items": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Generation metadata.",
+          "properties": {
+            "model": {
+              "type": "string",
+              "description": "Model used for generation."
+            },
+            "tokens_generated": {
+              "type": "integer",
+              "description": "Number of tokens generated."
+            },
+            "tokens_prompt": {
+              "type": "integer",
+              "description": "Number of tokens in the prompt."
+            },
+            "processing_time_ms": {
+              "type": "integer",
+              "description": "Time taken to generate in milliseconds."
+            },
+            "finish_reason": {
+              "type": "string",
+              "enum": ["stop", "length", "content_filter", "error"],
+              "description": "Reason generation stopped."
+            }
+          }
+        }
+      },
+      "required": ["content"]
+    }
+  },
+  "examples": [
+    {
+      "id": "generation",
+      "description": "Generate technical documentation."
+    },
+    {
+      "id": "generation",
+      "description": "Generate Python code from natural language.",
+      "input_schema": {
+        "prompt": "Write a function to calculate fibonacci numbers",
+        "type": "code",
+        "language": "python",
+        "constraints": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      },
+      "output_schema": {
+        "content": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)",
+        "type": "code",
+        "metadata": {
+          "tokens_generated": 45,
+          "finish_reason": "stop"
+        }
+      }
+    }
+  ]
+}
