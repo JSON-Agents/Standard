@@ -110,12 +110,40 @@ JSON Agents is based entirely on established JSON standards (RFC 8259, ECMA-404,
 │   ├── tool-types.json            # Standard tool types
 │   ├── profiles.json              # Profile definitions
 │   └── extensions.json            # Extension registry
+├── validators/                    # Official validators
+│   ├── python/                    # Python validator (v1.0.0) ✅
+│   │   ├── jsonagents/            # Package source
+│   │   ├── tests/                 # 47 tests (100% passing)
+│   │   └── README.md              # Documentation
+│   └── README.md                  # Validator overview
 └── docs/
     ├── index.md                   # Documentation index
     ├── implementers-guide.md      # Implementation guide
     ├── mapping-frameworks.md      # Framework conversions
     └── extensions.md              # Extension development
-````
+```
+
+---
+
+### 🧪 Validators
+
+**Official validators ensure manifests comply with the specification:**
+
+| Language | Status | Version | Test Coverage | Location |
+|----------|--------|---------|---------------|----------|
+| **Python** | ✅ Production Ready | v1.0.0 | 47/47 (100%) | [`validators/python/`](validators/python/) |
+| JavaScript/TypeScript | 🔜 Coming Soon | - | - | - |
+| Rust | 🔜 Coming Soon | - | - | - |
+| Go | 🔜 Coming Soon | - | - | - |
+
+**Quick validation:**
+```bash
+cd validators/python/
+pip3 install -r requirements.txt
+python3 -m jsonagents.cli validate ../../examples/*.json
+```
+
+See [`validators/README.md`](validators/README.md) for details.
 
 ---
 
