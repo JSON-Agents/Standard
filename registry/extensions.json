@@ -6,7 +6,7 @@
   "extensions": [
     {
       "id": "x-audit",
-      "schema": "https://jsonagents.org/schema/extensions/audit.json",
+      "schema": "https://jsonagents.org/json/schema/extensions/audit.json",
       "description": "Adds configurable auditing and log retention to agents.",
       "status": "stable",
       "introduced_in": "1.0",
@@ -14,7 +14,7 @@
     },
     {
       "id": "x-memory",
-      "schema": "https://jsonagents.org/schema/extensions/memory.json",
+      "schema": "https://jsonagents.org/json/schema/extensions/memory.json",
       "description": "Defines persistent or episodic memory storage and recall behavior.",
       "status": "stable",
       "introduced_in": "1.0",

@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 This document provides a **crosswalk** between JSON Agents and other widely used agent frameworks.  
 It is intended for developers seeking to **convert**, **import**, or **export** manifests to and from other ecosystems.
@@ -13,7 +13,7 @@ JSON Agents acts as a **unifying layer**, not a competing runtime — its goal i
 
 ---
 
-## 🧭 1. Alignment Philosophy
+## 1. Alignment Philosophy
 
 | Principle | Description |
 |------------|--------------|
@@ -26,7 +26,7 @@ JSON Agents acts as a **unifying layer**, not a competing runtime — its goal i
 
 ---
 
-## 🔄 1.1 Conversion Patterns
+## 1.1 Conversion Patterns
 
 ### Framework → JSON Agents (Import/Ingest)
 
@@ -52,7 +52,7 @@ Generate framework-specific agent implementations from JSON Agents manifests:
 
 ---
 
-## 🔌 2. Mapping Summary
+## 2. Mapping Summary
 
 | Framework / Format | Equivalent to | Mapping Method |
 |--------------------|----------------|----------------|
@@ -68,7 +68,7 @@ Generate framework-specific agent implementations from JSON Agents manifests:
 
 ---
 
-## ⚙️ 3. LangChain Example Conversion
+## 3. LangChain Example Conversion
 
 ### LangChain Python
 
@@ -105,7 +105,7 @@ agent = initialize_agent(tools, llm, agent_type="zero-shot-react-description")
 
 ---
 
-## 💬 4. OpenAI Manifest Mapping
+## 4. OpenAI Manifest Mapping
 
 | OpenAI Manifest Field   | JSON Agents Equivalent                   |
 | ----------------------- | ---------------------------------------- |
@@ -120,7 +120,7 @@ agent = initialize_agent(tools, llm, agent_type="zero-shot-react-description")
 
 ---
 
-## 🧩 5. MCP (Model Context Protocol) Mapping
+## 5. MCP (Model Context Protocol) Mapping
 
 JSON Agents tools can embed MCP-like metadata:
 
@@ -141,7 +141,7 @@ This allows one-to-one interoperability between JSON Agents manifests and any MC
 
 ---
 
-## 🧠 6. AutoGen / Multi-Agent Graphs
+## 6. AutoGen / Multi-Agent Graphs
 
 AutoGen and similar frameworks define **agent teams** or **conversation graphs**.
 These map directly to the JSON Agents `graph` profile:
@@ -162,7 +162,7 @@ These map directly to the JSON Agents `graph` profile:
 
 ---
 
-## 🔄 7. YAML ↔ JSON Interoperability
+## 7. YAML ↔ JSON Interoperability
 
 For developer friendliness, JSON Agents can be serialized in **YAML** (e.g., `agents.yaml`) without losing fidelity.
 
@@ -181,7 +181,7 @@ All official tooling MUST support both `.json` and `.yaml` input formats.
 
 ---
 
-## 🔍 8. Limitations and Mismatches
+## 8. Limitations and Mismatches
 
 | Limitation                                                     | Reason                                                                      |
 | -------------------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -192,7 +192,7 @@ All official tooling MUST support both `.json` and `.yaml` input formats.
 
 ---
 
-## 🧭 9. Conversion Utilities
+## 9. Conversion Utilities
 
 Community toolkits (planned):
 
@@ -207,7 +207,7 @@ Community toolkits (planned):
 
 ---
 
-## ⚖️ 10. Implementation Notes
+## 10. Implementation Notes
 
 When bridging frameworks:
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/message-envelope.json",
+  "$id": "https://jsonagents.org/json/schema/message-envelope.json",
   "title": "JSON Agents Message Envelope",
   "description": "Canonical JSON structure for messages exchanged between agents.",
   "type": "object",

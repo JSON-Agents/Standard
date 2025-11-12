@@ -4,7 +4,7 @@
 
 ---
 
-## 🧩 Purpose
+## Purpose
 
 This guide explains **how to parse, validate, and operationalize JSON Agents manifests** within different environments.
 
@@ -16,7 +16,7 @@ It is written for developers building:
 
 ---
 
-## 🧱 1. Core Structure
+## 1. Core Structure
 
 An **JSON Agents manifest** is a JSON object adhering to the canonical schema:  
 [`/schema/json-agents.json`](../schema/json-agents.json)
@@ -53,7 +53,7 @@ At minimum, it MUST include:
 
 ---
 
-## ⚙️ 2. Validation
+## 2. Validation
 
 JSON Agents uses **JSON Schema 2020-12**.
 Validation ensures compatibility and predictable interoperability.
@@ -82,7 +82,7 @@ print("Manifest is valid ✅")
 
 ---
 
-## 🧠 3. Profiles and Conditional Fields
+## 3. Profiles and Conditional Fields
 
 Each **profile** adds a set of properties and validation rules:
 
@@ -100,14 +100,14 @@ Schemas reference `/schema/` submodules for each section.
 
 ---
 
-## 🔗 4. Linking Capabilities and Tools
+## 4. Linking Capabilities and Tools
 
 Capabilities and tools can reference their respective schema definitions:
 
 ```json
 {
   "id": "summarization",
-  "schema": "https://jsonagents.org/schema/capabilities/summarization.json"
+  "schema": "https://jsonagents.org/json/schema/capabilities/summarization.json"
 }
 ```
 
@@ -124,7 +124,7 @@ Tools should specify their type via the canonical registry:
 
 ---
 
-## 🧰 5. Using Extensions
+## 5. Using Extensions
 
 JSON Agents supports **non-breaking innovation** via the `x-*` namespace:
 
@@ -140,7 +140,7 @@ Implementers SHOULD ignore unknown `x-*` keys to preserve compatibility.
 
 ---
 
-## 🔒 6. Security and Policies
+## 6. Security and Policies
 
 When the **`gov`** profile is present, the following fields apply:
 
@@ -163,7 +163,7 @@ Policies use simple condition expressions to define enforcement:
 
 ---
 
-## 🔄 7. Message Exchange
+## 7. Message Exchange
 
 Agents in a **graph** topology exchange structured messages using the canonical envelope:
 
@@ -182,7 +182,7 @@ Envelope schema:
 
 ---
 
-## 🧩 8. Interoperability Layers
+## 8. Interoperability Layers
 
 JSON Agents manifests can be parsed by:
 
@@ -195,7 +195,7 @@ JSON Agents manifests can be parsed by:
 
 ---
 
-## 🧮 9. Versioning and Upgrades
+## 9. Versioning and Upgrades
 
 * Manifests specify `"manifest_version": "1.0"`.
 * Validation tools SHOULD accept compatible minor versions (e.g. `1.x`).
@@ -203,7 +203,7 @@ JSON Agents manifests can be parsed by:
 
 ---
 
-## 🧠 10. Best Practices
+## 10. Best Practices
 
 ✅ Always include a `version` in `agent`.
 ✅ Use canonical capability IDs where possible.
@@ -213,7 +213,7 @@ JSON Agents manifests can be parsed by:
 
 ---
 
-## 📜 References
+## References
 
 * [RFC 8259: JSON Data Interchange Syntax](https://datatracker.ietf.org/doc/html/rfc8259)
 * [JSON Schema 2020-12](https://json-schema.org)

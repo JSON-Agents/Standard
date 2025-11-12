@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/capabilities/summarization.json",
+  "$id": "https://jsonagents.org/json/schema/capabilities/summarization.json",
   "title": "Capability: Summarization",
   "description": "Standardized declaration for text summarization capability.",
   "type": "object",

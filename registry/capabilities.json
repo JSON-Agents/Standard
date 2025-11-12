@@ -6,37 +6,37 @@
     {
       "id": "summarization",
       "description": "Summarize one or more input texts.",
-      "schema": "https://jsonagents.org/schema/capabilities/summarization.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/summarization.json"
     },
     {
       "id": "routing",
       "description": "Route messages to appropriate agents or tools based on content or intent.",
-      "schema": "https://jsonagents.org/schema/capabilities/routing.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/routing.json"
     },
     {
       "id": "retrieval",
       "description": "Retrieve relevant information or documents from one or more data sources.",
-      "schema": "https://jsonagents.org/schema/capabilities/retrieval.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/retrieval.json"
     },
     {
       "id": "qa",
       "description": "Answer user questions using internal or external knowledge sources.",
-      "schema": "https://jsonagents.org/schema/capabilities/qa.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/qa.json"
     },
     {
       "id": "classification",
       "description": "Classify inputs into one or more labels.",
-      "schema": "https://jsonagents.org/schema/capabilities/classification.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/classification.json"
     },
     {
       "id": "extraction",
       "description": "Extract structured entities or fields from unstructured content.",
-      "schema": "https://jsonagents.org/schema/capabilities/extraction.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/extraction.json"
     },
     {
       "id": "generation",
       "description": "Generate new content (text, code, etc.) given instructions.",
-      "schema": "https://jsonagents.org/schema/capabilities/generation.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/generation.json"
     }
   ]
 }

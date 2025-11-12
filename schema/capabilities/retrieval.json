@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/capabilities/retrieval.json",
+  "$id": "https://jsonagents.org/json/schema/capabilities/retrieval.json",
   "title": "Capability: Retrieval",
   "description": "Standardized declaration for retrieval-augmented generation or document search.",
   "type": "object",

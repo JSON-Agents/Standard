@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/extensions/memory.json",
+  "$id": "https://jsonagents.org/json/schema/extensions/memory.json",
   "title": "Extension: Memory",
   "description": "Extension for defining persistent, episodic, or hybrid memory configurations in JSON Agents manifests.",
   "type": "object",
@@ -64,7 +64,7 @@
   "examples": [
     {
       "x-memory": {
-        "$schema": "https://jsonagents.org/schema/extensions/memory.json",
+        "$schema": "https://jsonagents.org/json/schema/extensions/memory.json",
         "provider": "vector-db",
         "engine": "qdrant",
         "capacity": 50000,

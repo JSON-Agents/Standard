@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/capabilities/classification.json",
+  "$id": "https://jsonagents.org/json/schema/capabilities/classification.json",
   "title": "Capability: Classification",
   "description": "Standardized declaration for text or data classification capability.",
   "type": "object",

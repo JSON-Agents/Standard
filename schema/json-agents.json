@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/json-agents.json",
+  "$id": "https://jsonagents.org/json/schema/json-agents.json",
   "title": "JSON Agents Portable Agent Manifest (PAM)",
   "type": "object",
   "required": ["manifest_version", "agent"],

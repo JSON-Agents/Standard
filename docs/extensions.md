@@ -4,14 +4,14 @@
 
 ---
 
-## 🌐 1. Purpose
+## 1. Purpose
 
 JSON Agents is designed to evolve.  
 To prevent schema fragmentation while allowing innovation, the specification defines an **extensions mechanism** that lets implementers add new fields, namespaces, and behaviors without breaking compatibility.
 
 ---
 
-## 🧭 2. Principles
+## 2. Principles
 
 | Principle | Description |
 |------------|--------------|
@@ -23,7 +23,7 @@ To prevent schema fragmentation while allowing innovation, the specification def
 
 ---
 
-## 🧱 3. Basic Usage
+## 3. Basic Usage
 
 Extensions can appear **anywhere** in a manifest — top-level, nested, or within sub-objects.
 
@@ -46,7 +46,7 @@ Parsers should preserve but ignore unknown `x-*` sections.
 
 ---
 
-## 🧩 4. Typed Extensions
+## 4. Typed Extensions
 
 To make extensions interoperable, each may include an `$schema` reference:
 
@@ -64,7 +64,7 @@ Extension schemas are defined independently in `/schema/extensions/`.
 
 ---
 
-## 🧠 5. Common Use Cases
+## 5. Common Use Cases
 
 | Extension Namespace | Purpose                                                   |
 | ------------------- | --------------------------------------------------------- |
@@ -76,7 +76,7 @@ Extension schemas are defined independently in `/schema/extensions/`.
 
 ---
 
-## 🧰 6. Example: Persistent Memory Extension
+## 6. Example: Persistent Memory Extension
 
 ```json
 {
@@ -94,14 +94,14 @@ This would define additional memory configuration outside the core specification
 
 ---
 
-## 🧾 7. Example: Audit Extension Schema
+## 7. Example: Audit Extension Schema
 
 ### `/schema/extensions/audit.json`
 
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/extensions/audit.json",
+  "$id": "https://jsonagents.org/json/schema/extensions/audit.json",
   "title": "Extension: Audit",
   "description": "Custom auditing configuration for JSON Agents manifests.",
   "type": "object",
@@ -122,7 +122,7 @@ This would define additional memory configuration outside the core specification
 
 ---
 
-## 🧩 8. Declaring Extension Registries
+## 8. Declaring Extension Registries
 
 All extensions SHOULD be listed in a central registry file:
 
@@ -135,12 +135,12 @@ All extensions SHOULD be listed in a central registry file:
   "extensions": [
     {
       "id": "x-audit",
-      "schema": "https://jsonagents.org/schema/extensions/audit.json",
+      "schema": "https://jsonagents.org/json/schema/extensions/audit.json",
       "description": "Adds auditing options to agent manifests."
     },
     {
       "id": "x-memory",
-      "schema": "https://jsonagents.org/schema/extensions/memory.json",
+      "schema": "https://jsonagents.org/json/schema/extensions/memory.json",
       "description": "Persistent memory and vector store configuration."
     }
   ]
@@ -149,7 +149,7 @@ All extensions SHOULD be listed in a central registry file:
 
 ---
 
-## 🧮 9. Validation Rules
+## 9. Validation Rules
 
 * Validators MUST treat all `x-*` keys as **optional**.
 * Validators MUST NOT raise errors for unrecognized extensions.
@@ -158,7 +158,7 @@ All extensions SHOULD be listed in a central registry file:
 
 ---
 
-## 🔒 10. Security Considerations
+## 10. Security Considerations
 
 When adding extensions:
 
@@ -169,7 +169,7 @@ When adding extensions:
 
 ---
 
-## 🧠 11. Future-Proofing
+## 11. Future-Proofing
 
 Future versions of JSON Agents will support:
 

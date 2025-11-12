@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/extensions/audit.json",
+  "$id": "https://jsonagents.org/json/schema/extensions/audit.json",
   "title": "Extension: Audit",
   "description": "Custom auditing configuration for JSON Agents manifests.",
   "type": "object",
@@ -40,7 +40,7 @@
   "examples": [
     {
       "x-audit": {
-        "$schema": "https://jsonagents.org/schema/extensions/audit.json",
+        "$schema": "https://jsonagents.org/json/schema/extensions/audit.json",
         "level": "detailed",
         "include_payloads": true,
         "destination": "https://logs.example.net/audit",

@@ -13,7 +13,7 @@
     {
       "id": "summarization",
       "description": "Summarize one or more input texts.",
-      "schema": "https://jsonagents.org/schema/capabilities/summarization.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/summarization.json"
     }
   ],
   "tools": [

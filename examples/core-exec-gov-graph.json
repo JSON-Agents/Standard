@@ -12,7 +12,7 @@
     {
       "id": "routing",
       "description": "Select appropriate downstream agent based on intent.",
-      "schema": "https://jsonagents.org/schema/capabilities/routing.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/routing.json"
     }
   ],
   "tools": [],
@@ -77,7 +77,7 @@
       }
     ],
     "message_envelope": {
-      "schema": "https://jsonagents.org/schema/message-envelope.json"
+      "schema": "https://jsonagents.org/json/schema/message-envelope.json"
     }
   }
 }

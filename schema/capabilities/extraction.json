@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/capabilities/extraction.json",
+  "$id": "https://jsonagents.org/json/schema/capabilities/extraction.json",
   "title": "Capability: Extraction",
   "description": "Standardized declaration for entity and information extraction from unstructured content.",
   "type": "object",

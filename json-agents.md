@@ -313,7 +313,7 @@ Top-level fields:
 ```json
 "graph": {
   "message_envelope": {
-    "schema": "https://jsonagents.org/schema/message-envelope.json"
+    "schema": "https://jsonagents.org/json/schema/message-envelope.json"
   }
 }
 ```

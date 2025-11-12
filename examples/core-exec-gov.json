@@ -17,7 +17,7 @@
     {
       "id": "retrieval",
       "description": "Retrieve relevant internal documents.",
-      "schema": "https://jsonagents.org/schema/capabilities/retrieval.json"
+      "schema": "https://jsonagents.org/json/schema/capabilities/retrieval.json"
     }
   ],
   "tools": [

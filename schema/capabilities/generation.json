@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/capabilities/generation.json",
+  "$id": "https://jsonagents.org/json/schema/capabilities/generation.json",
   "title": "Capability: Generation",
   "description": "Standardized declaration for content generation capability (text, code, etc.).",
   "type": "object",

@@ -71,7 +71,7 @@ The canonical schema is located at:
 
 ```
 
-[https://jsonagents.org/schema/json-agents.json](https://jsonagents.org/schema/json-agents.json)
+[https://jsonagents.org/json/schema/json-agents.json](https://jsonagents.org/json/schema/json-agents.json)
 
 ````
 
@@ -113,7 +113,7 @@ Profiles are additive; implementations MAY support subsets.
 Capabilities reference schemas such as:
 
 ```
-https://jsonagents.org/schema/capabilities/summarization.json
+https://jsonagents.org/json/schema/capabilities/summarization.json
 ```
 
 Tools include `type`, `input_schema`, `output_schema`, and optional `auth`.
@@ -183,7 +183,7 @@ Extensions enable experimentation without fragmentation.
 ```json
 {
   "x-memory": {
-    "$schema": "https://jsonagents.org/schema/extensions/memory.json",
+    "$schema": "https://jsonagents.org/json/schema/extensions/memory.json",
     "provider": "vector-db",
     "engine": "qdrant"
   }

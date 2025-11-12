@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jsonagents.org/schema/capabilities/routing.json",
+  "$id": "https://jsonagents.org/json/schema/capabilities/routing.json",
   "title": "Capability: Routing",
   "description": "Standardized declaration for intent-based or rule-based routing between agents or tools.",
   "type": "object",
